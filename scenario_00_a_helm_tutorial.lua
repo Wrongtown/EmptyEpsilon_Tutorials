@@ -98,7 +98,7 @@ function update(delta)
 
 
 if tut_stamp == 1 then
-    tutimer = 128
+    tutimer = 1
 end
 
 
