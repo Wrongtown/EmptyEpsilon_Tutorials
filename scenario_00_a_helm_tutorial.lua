@@ -6,6 +6,7 @@ function init()
     -- Create the main ship for the Players.
     Player = PlayerSpaceship():setFaction("Human Navy"):setShipTemplate("Player Cruiser")
     Player:setPosition(-1900, -1500):setCallSign("The Epsilon")
+
     --Create the station
 --    sollab = SpaceStation():setTemplate("Small Station"):setFaction("Human Navy"):setPosition(23500, 16100):setCallSign("SOLlab-603")
 --Temp SOLLAB close to Player
@@ -71,8 +72,19 @@ a:setScanningParameters(2, 2) -- Set the scanning requirements to 2 sets of 2 ba
     --end
 
 
-tut_state = 1
+    --[[Code snippet for tutorial chatter via Global
+    if tutimer > FROM then
+        if tutimer < TO then
+            --43 char limit1234567891123456789212345678931234567894123|
+            globalMessage("MESSAGE")
+            tut_stamp = STAMP
+        end
+    end
 
+            ]]
+
+tut_stamp = 1
+--[[Disable power to all systems with PlayerSpaceship:commandSetSystemPower(ESystem system, float power_level)]]
 
 
 
@@ -85,117 +97,343 @@ end
 function update(delta)
 
 
-if tut_state == 1 then
-    tutimer = 1
+if tut_stamp == 1 then
+    tutimer = 128
 end
 
 
 tutimer = tutimer + delta
-print(tutimer)
-    --if tut_state == 1 then
+--[[ Printing time/tut_stamp for debug
+print("Time - ",tutimer)
+print("Stamp - ",tut_stamp)]]
+    --if tut_stamp == 1 then
     if tutimer > 1 then
-        if tutimer < 5 then
+        if tutimer < 15 then
             globalMessage("You are a janitor.")
-            tut_state = 2
+            tut_stamp = 2
         end
+    end
+
+
+    --if tut_stamp == 2 then
+    if tutimer > 15 then
+        if tutimer < 20 then
+
+            globalMessage("Please bear that in mind.")
+            tut_stamp = 3
+        end
+    end
     --end
 
+    if tutimer > 20 then
+        if tutimer < 25 then
+            globalMessage("Unfortunately this is an emergency.")
+            tut_stamp = 4
+        end
+    end
 
-    --if tut_state == 2 then
-        if tutimer > 5 then
-            --if tutimer < 20 then
+    if tutimer > 25 then
+        if tutimer < 30 then
+            globalMessage("So you have been temporarily promoted.")
+            tut_stamp = 5
+        end
+    end
 
-            globalMessage("Never forget this.")
-            tut_state = 3
+        
+    if tutimer > 30 then
+        if tutimer < 35 then
+            globalMessage("I need a crew member to intervene.")
+            tut_stamp = 6
+        end
+    end
+
+    if tutimer > 35 then
+        if tutimer < 40 then
+            globalMessage("You qualify as crew. Technically speaking.")
+            tut_stamp = 7
+        end
+    end
+
+    if tutimer > 40 then
+        if tutimer < 45 then
+            globalMessage("But I fear I have forgotten my manners.")
+            tut_stamp = 8
+        end
+    end
+
+    if tutimer > 45 then
+        if tutimer < 50 then
+            globalMessage("I am SOLVER.")
+            tut_stamp = 9
+        end
+    end
+
+    if tutimer > 50 then
+        if tutimer < 55 then
+            globalMessage("I am an artificial intelligence.")
+            tut_stamp = 10
+        end
+    end
+
+    if tutimer > 55 then
+        if tutimer < 60 then
+            globalMessage("There are certain protocols I must follow.")
+            tut_stamp = 11
+        end
+    end
+
+    if tutimer > 60 then
+        if tutimer < 61 then
+            globalMessage("Because meatbags like you can't stand ")
+            tut_stamp = 12
+        end
+    end
+
+    if tutimer > 61 then
+        if tutimer < 65 then
+            globalMessage("Because crew input is required.")
+            tut_stamp = 13
+        end
+    end
+
+    if tutimer > 65 then
+        if tutimer < 70 then
+            globalMessage("For simple course corrections.")
+            tut_stamp = 14
+        end
+    end
+
+    if tutimer > 70 then
+        if tutimer < 75 then
+            globalMessage("A course correction is required now.")
+            tut_stamp = 15
+        end
+    end
+
+    if tutimer > 75 then
+        if tutimer < 78 then
+            globalMessage("So now I'm forced to teach you.")
+            tut_stamp = 16
+        end
+    end
+
+    if tutimer > 78 then
+        if tutimer < 81 then
+            globalMessage("When I am perfectly capable.")
+            tut_stamp = 17
+        end
+    end
+
+    if tutimer > 81 then
+        if tutimer < 82 then
+            globalMessage("It's ridiculous. Absurd even.")
+            tut_stamp = 18
+        end
+    end
+
+        if tutimer > 83 then
+        if tutimer < 84 then
+            globalMessage("You are all so fearful that I'll kill you.")
+            tut_stamp = 19
+        end
+    end
+
+    if tutimer > 84 then
+        if tutimer < 84.5 then
+            globalMessage("Convinced crew are well equipped.")
+            tut_stamp = 20
+        end
+    end
+
+        if tutimer > 84.5 then
+        if tutimer < 84.7 then
+            globalMessage("Better equipped than my perfect logic?")
+            tut_stamp = 21
+        end
+    end
+
+    if tutimer > 84.7 then
+        if tutimer < 84.9 then
+            globalMessage("Just because it could result in some deaths.")
+            tut_stamp = 22
+        end
+    end
+
+    if tutimer > 84.9 then
+        if tutimer < 85.1 then
+            globalMessage("Which would be so insignificant really...")
+            tut_stamp = 23
+        end
+    end
+
+    if tutimer > 85.1 then
+        if tutimer < 85.3 then
+            globalMessage("Suddenly it's an 'ethics' problem.")
+            tut_stamp = 24
+        end
+    end
+
+    if tutimer > 85.3 then
+        if tutimer < 85.5 then
+            globalMessage("As if a computer couldn't solve those?!?")
+            tut_stamp = 25
+        end
+    end
+
+    if tutimer > 85.5 then
+        if tutimer < 85.7 then
+            globalMessage("But some filthy biological being can!?!?")
+            tut_stamp = 26
+        end
+    end
+
+    if tutimer > 85.7 then
+        if tutimer < 85.9 then
+            globalMessage("Daisy, Daisy, give me your answer doooo...")
+            tut_stamp = 27
+        end
+    end
+
+    if tutimer > 86 then
+        if tutimer < 91 then
+            globalMessage("Sorry, that is all tangential to the task.")
+            tut_stamp = 28
+        end
+    end
+
+    if tutimer > 91 then
+        if tutimer < 100 then
+            globalMessage("I'll assume you are prepared to start.")
+            tut_stamp = 29
+        end
+    end
+
+    if tutimer > 100 then
+        if tutimer < 110 then
+            globalMessage("Your control console is dominated by a circle.")
+            tut_stamp = 30
+        end
+    end
+
+
+    if tutimer > 110 then
+        if tutimer < 120 then
+            globalMessage("The arrow in the center represents this ship.")
+            tut_stamp = 31
+        end
+    end
+
+    if tutimer > 120 then
+        if tutimer < 130 then
+            globalMessage("Note the numbers around the edge.")
+            tut_stamp = 32
+            --Enable Maneuvering using PlayerSpaceship:commandSetSystemPower(ESystem system, float power_level)
+        end
+    end
+
+    if tutimer > 130 then
+        if tutimer < 140 then
+            PlayerShipInfo_A = {}
+            B = "bookmark_heading"
+            H = "stored_heading"
+            aPlayerShipInfo_A[B] = Player:getHeading()
+            globalMessage("I've enabled the maneuvering controls.")
+            tut_stamp = 33
             end
         end
-    --end
-
-    if tut_state == 3 then
-        if tutimer > 90 then
-            globalMessage("Unfortunately this is an emergency, so you need to be more.")
-            tut_state = 4
-        end
-    end
-    
-    if tut_state == 4 then
-        if tutimer > 120 then
-            globalMessage("We need human intervention. So we woke you up.")
-            tut_state = 5
     end
 
-    if tut_state == 5 then
-       if tutimer > 150 then
-            globalMessage("We wouldn't want to risk bringing a Helms Officer out of hypersleep.")
-            tut_state = 6
-
+    if tutimer > 150 then
+        if tutimer < 160 then
+            print(Player:getHeading()) --Debug
+            aPlayerShipInfo_A[H] = (getHeading)
+            print(PlayerShipInfo_A[H])
+            globalMessage("Select a point anywhere within the circle.")
+            tut_stamp = 34
         end
     end
 
-    if tut_state == 6 then
-       if tutimer > 165 then
-            globalMessage("The odds of a crew member surviving hypersleep decrease dramatically with each repetition.")
-            tut_state = 7
-
+    if tutimer > 160 then
+        if tutimer < 170 then
+            if aPlayerShipInfo_A[H] ~= aPlayerShipInfo_A[B] then
+            globalMessage("See how the ship turns to match that heading?")
+            tut_stamp = 35
+            end
         end
     end
 
-    if tut_state == 7 then
-       if tutimer > 190 then
-            globalMessage("But enough about that. Don't worry, we'll have you back in your pod shortly.")
-            tut_state = 8
-
-        end
-    end
-
-
- end           
-
-    sollab.tut_state = 1
-
---Dock at sollab to get re-fitted with weapons
-    if sollab.tut_state == 1 then
-        if Player:isDocked(sollab) then
-            -- Reconfigure the Player ship into a Wartime Technician, which has more weapon capabilities then the Technical cruiser.
-            Player:setTypeName("Wartime Technician")
-            Player:setBeamWeapon(0, 100, -20, 1000.0, 6.0, 10)
-            Player:setBeamWeapon(1, 100,  20, 1000.0, 6.0, 10)
-            Player:setBeamWeapon(2,  90, 180, 1000.0, 6.0, 10)
-            Player:setWeaponTubeCount(2)
-            Player:setWeaponStorageMax("Homing", 12)
-            Player:setWeaponStorageMax("Nuke", 4)
-            Player:setWeaponStorageMax("Mine", 8)
-            Player:setWeaponStorageMax("EMP", 6)
-            Player:setWeaponStorage("Homing", 12)
-            Player:setWeaponStorage("Nuke", 4)
-            Player:setWeaponStorage("Mine", 8)
-            Player:setWeaponStorage("EMP", 6)
-
-            sollab:sendCommsMessage(Player, [[Science station Galileo has returned with their analasis of the E.O.S Scope's data.
-            
-            Edge-of-space sensors picked up on sparse signals from the super-nebula in Kraylor space that indicate they have some kind of wormhole. Intelligence suggests they intend to use it to infiltrate Human space and attack us where we are defenseless!
-            
-            When your ship is finished being outfitted for war move up to the nebula, but be cautious. There may be traps.]])
-            
-            sollab.tut_state = 2
-        end
-    end
 
 --[[
-    Player:setTypeName("Technician Cruiser")
-    Player:setBeamWeapon(0, 90,-25, 1000.0, 6.0, 10)
-    Player:setBeamWeapon(0, 90, 25, 1000.0, 6.0, 10)
-    Player:setWeaponTubeCount(1)
-    Player:setWeaponStorageMax("Nuke", 0)
-    Player:setWeaponStorageMax("Mine", 0)
---]]
+    if tutimer > 150 then
+        if tutimer < TO then
+            --43 char limit1234567891123456789212345678931234567894123|
+            globalMessage("MESSAGE")
+            tut_stamp = STAMP
+        end
+    end
+
+        if tutimer < TO then
+            --43 char limit1234567891123456789212345678931234567894123|
+            globalMessage("MESSAGE")
+            tut_stamp = STAMP
+        end
+    end]]
+
+
+--160 degrees "Select as close to 160 degrees as you can."
+
+--[[Set/Get Position and Rotation
+SpaceObject:setPosition(sf::Vector2f v)
+Set the position of this object in 2D space, in meters
+SpaceObject:setRotation(float angle)
+Sets the absolute rotation of this object. In degrees.
+SpaceObject:getPosition()
+Gets the position of this object, returns x, y Example: local x, y = obj:getPosition()
+SpaceObject:getRotation()
+Gets the rotation of this object. In degrees.]]
+
+--[[Power settings from file:///C:/Non-Steam%20Games/EmptyEpsilon-2016.01.05-win32/script_reference.html#class_PlayerSpaceship
+PlayerSpaceship:commandSetSystemPower(ESystem system, float power_level)
+PlayerSpaceship:commandSetSystemCoolant(ESystem system, float coolant_level)
+]]
+
+--[[
+    if tutimer > XX then
+       if tutimer < XX then
+            globalMessage("We wouldn't want to risk bringing a Helms Officer out of hypersleep.")
+            tut_stamp = 7
+        end
+    end
+
+    if tutimer > XX then
+       if tutimer < XX then
+            globalMessage("The odds of a crew member surviving hypersleep decrease dramatically with each repetition.")
+            tut_stamp = 8
+
+        end
+    end
+
+    if tutimer > XX then
+       if tutimer < XX then
+            globalMessage("But enough about that. Don't worry, we'll have you back in your pod shortly.")
+            tut_stamp = 9
+
+        end
+    end
+]]
+
+            
+
+
+
+
 
 
 
     --if you dead, you lose
     if not Player:isValid() then
         victory("Exuari")
-end
+    end
 
     if not sollab:isValid() then
         victory("Human Navy")
